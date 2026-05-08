@@ -13,7 +13,6 @@ import {
 	useSpring,
 	useMotionValue,
 	useReducedMotion,
-	type Transition,
 	type Variants,
 } from 'motion/react'
 import {
@@ -117,7 +116,7 @@ export function TiltCard({
 	const ref = useRef<HTMLDivElement | null>(null)
 	const rotateX = useMotionValue(0)
 	const rotateY = useMotionValue(0)
-	const springConfig: Transition = { type: 'spring', stiffness: 300, damping: 30 }
+	const springConfig = { stiffness: 300, damping: 30 }
 	const smoothX = useSpring(rotateX, springConfig)
 	const smoothY = useSpring(rotateY, springConfig)
 	const reduce = useReducedMotion()
@@ -170,7 +169,7 @@ export function MagneticButton({
 	const ref = useRef<HTMLDivElement | null>(null)
 	const x = useMotionValue(0)
 	const y = useMotionValue(0)
-	const springConfig: Transition = { type: 'spring', stiffness: 300, damping: 20 }
+	const springConfig = { stiffness: 300, damping: 20 }
 	const smoothX = useSpring(x, springConfig)
 	const smoothY = useSpring(y, springConfig)
 	const reduce = useReducedMotion()
