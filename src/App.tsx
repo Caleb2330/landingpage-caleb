@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
+import { Analytics } from '@vercel/analytics/react'
 import {
 	IconArrowRight,
 	IconChevronDown,
@@ -499,6 +500,7 @@ export function App() {
 					</div>
 				</div>
 			</footer>
+			<Analytics />
 		</div>
 	)
 }
