@@ -236,9 +236,8 @@ export function App() {
 
 					<FadeUp delay={1} className="w-full flex justify-center">
 						<p className="mt-3 sm:mt-7 text-[14px] sm:text-lg lg:text-xl text-[var(--color-fg-mute)] max-w-2xl">
-							A free community where smart people share what’s quietly working for them.
-							No fees, no pressure, no nonsense. Walk in, see for yourself, leave
-							anytime.
+							Make $1000 - $5000 every month by using this an AI automated bot
+							No fees, no pressure, no nonsense. Walk in, see for yourself.
 						</p>
 					</FadeUp>
 
