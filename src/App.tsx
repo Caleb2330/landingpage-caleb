@@ -27,6 +27,16 @@ import {
 	SpotlightSection,
 } from './motion-primitives'
 
+declare global {
+	interface Window {
+		fbq?: (...args: unknown[]) => void
+	}
+}
+
+function trackLead(channel: 'WhatsApp' | 'Telegram') {
+	window.fbq?.('track', 'Lead', { content_name: channel })
+}
+
 // ─── CTA targets ─────────────────────────────────────────────
 const WHATSAPP_HREF = 'https://chat.whatsapp.com/Dg4q3GDE4GS3zXC9J03CVJ'
 const TELEGRAM_HREF = 'https://t.me/+rPyUCWxdFBxmNDM0'
@@ -149,6 +159,7 @@ function WhatsAppButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
 				href={WHATSAPP_HREF}
 				target="_blank"
 				rel="noopener noreferrer"
+				onClick={() => trackLead('WhatsApp')}
 				className={`cta-pulse-wa inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white font-bold transition ${
 					big ? 'h-13 sm:h-14 px-7 sm:px-9 text-base' : 'h-12 sm:h-14 px-5 sm:px-7 text-[15px] sm:text-base'
 				}`}
@@ -169,6 +180,7 @@ function TelegramButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
 				href={TELEGRAM_HREF}
 				target="_blank"
 				rel="noopener noreferrer"
+				onClick={() => trackLead('Telegram')}
 				className={`cta-pulse-tg inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#2AABEE] to-[#229ED9] text-white font-bold transition ${
 					big ? 'h-13 sm:h-14 px-7 sm:px-9 text-base' : 'h-12 sm:h-14 px-5 sm:px-7 text-[15px] sm:text-base'
 				}`}
@@ -264,6 +276,48 @@ export function App() {
 							</span>
 						</div>
 					</FadeUp>
+				</div>
+			</section>
+
+			{/* ─── Real receipts (app proof) ─── */}
+			<section className="border-t border-[var(--color-border)] py-16 sm:py-24">
+				<div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+					<FadeUp>
+						<div className="text-center mb-12 sm:mb-16">
+							<p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[var(--color-brand)] mb-3">
+								Real receipts
+							</p>
+							<h2 className="text-[clamp(28px,3.5vw,40px)] font-extrabold tracking-tight">
+								What members are actually seeing.
+							</h2>
+							<p className="mt-4 text-[14px] sm:text-[15px] text-[var(--color-fg-mute)] max-w-xl mx-auto">
+								Snapshots from inside the app. Your results won't match anyone else's — these are just real moments from real members.
+							</p>
+						</div>
+					</FadeUp>
+
+					<div className="grid gap-5 sm:gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+						<FadeUp>
+							<div className="glass-card rounded-2xl p-3 sm:p-4 overflow-hidden">
+								<img
+									src="/proof/s2.jpg"
+									alt="DegXiFi app dashboard showing total profit"
+									loading="lazy"
+									className="w-full rounded-xl block"
+								/>
+							</div>
+						</FadeUp>
+						<FadeUp delay={0.1}>
+							<div className="glass-card rounded-2xl p-3 sm:p-4 overflow-hidden">
+								<img
+									src="/proof/n2.jpg"
+									alt="DegXiFi app positions list with closed trades"
+									loading="lazy"
+									className="w-full rounded-xl block"
+								/>
+							</div>
+						</FadeUp>
+					</div>
 				</div>
 			</section>
 
@@ -438,6 +492,45 @@ export function App() {
 								</StaggerItem>
 							)
 						})}
+					</StaggerGroup>
+				</div>
+			</section>
+
+			{/* ─── Inside the group (testimonials) ─── */}
+			<section className="border-t border-[var(--color-border)] py-16 sm:py-24 bg-gradient-to-b from-[rgba(16,185,129,0.04)] to-transparent">
+				<div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+					<FadeUp>
+						<div className="text-center mb-12 sm:mb-16">
+							<p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[var(--color-brand)] mb-3">
+								Inside the group
+							</p>
+							<h2 className="text-[clamp(28px,3.5vw,40px)] font-extrabold tracking-tight">
+								Unsolicited messages from members.
+							</h2>
+							<p className="mt-4 text-[14px] sm:text-[15px] text-[var(--color-fg-mute)] max-w-xl mx-auto">
+								Real DMs, shared with permission. Names blurred. Your experience may be completely different.
+							</p>
+						</div>
+					</FadeUp>
+
+					<StaggerGroup className="grid gap-5 sm:gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+						{[
+							{ src: '/proof/s3.jpg', alt: 'WhatsApp message from a DegXiFi member' },
+							{ src: '/proof/s4.jpg', alt: 'WhatsApp message from a DegXiFi member' },
+							{ src: '/proof/s5.jpg', alt: 'WhatsApp message with a DegXiFi earnings screenshot' },
+							{ src: '/proof/s1.jpg', alt: 'WhatsApp message from a DegXiFi member' },
+						].map(({ src, alt }) => (
+							<StaggerItem key={src}>
+								<div className="glass-card rounded-2xl p-3 sm:p-4 h-full">
+									<img
+										src={src}
+										alt={alt}
+										loading="lazy"
+										className="w-full rounded-xl block"
+									/>
+								</div>
+							</StaggerItem>
+						))}
 					</StaggerGroup>
 				</div>
 			</section>
