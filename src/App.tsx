@@ -234,21 +234,16 @@ export function App() {
 
 					<h1 className="text-[clamp(28px,6vw,68px)] font-extrabold tracking-[-0.025em] leading-[1.15] pb-1 max-w-4xl">
 						<WordReveal
-							text="Less hustle."
+							text="Make $10000 - $50000 every month by using this an AI automated bots"
 							delayBase={0.15}
 							wordClassName="leading-[1.2]"
 						/>
-						<br />
-						<WordReveal
-							text="More signal."
-							delayBase={0.45}
-							wordClassName="text-gradient-brand leading-[1.2] pb-1"
-						/>
+
 					</h1>
 
 					<FadeUp delay={1} className="w-full flex justify-center">
 						<p className="mt-3 sm:mt-7 text-[14px] sm:text-lg lg:text-xl text-[var(--color-fg-mute)] max-w-2xl">
-							Make $1000 - $5000 every month by using this an AI automated bot
+							Make $10000 - $50000 every month by using this an AI automated bot
 							No fees, no pressure, no nonsense. Walk in, see for yourself.
 						</p>
 					</FadeUp>
